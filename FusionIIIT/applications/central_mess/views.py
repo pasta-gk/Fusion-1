@@ -570,6 +570,7 @@ def responsespl(request, ap_id):
     sprequest.save()
     return HttpResponseRedirect("/mess")
 
+
 def updatecost(request):
     user = request.user
     extrainfo = ExtraInfo.objects.get(user=user)
@@ -587,12 +588,11 @@ def updatecost(request):
     for temp in monthlybill:
         temp.amount = cost
         temp.save()
-    print(temp)
+    print(cost)
     return JsonResponse(data)
 
 
 class MenuPDF(View):
-    print("in")
     data = 0
 
     def post(self, request, *args, **kwargs):
